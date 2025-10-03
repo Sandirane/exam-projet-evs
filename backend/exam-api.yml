@@ -3,7 +3,7 @@ info:
   title: API des Examens
   version: 1.0.0
 paths:
-  /exams:
+   /api/exams:
     get:
       summary: Récupérer la liste des examens
       responses:
