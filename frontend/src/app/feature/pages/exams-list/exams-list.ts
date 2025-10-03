@@ -14,6 +14,19 @@ export class ExamsList implements OnInit {
 
   private examService = inject(ExamService);
 
+  getStatusBadgeClass(status: string): string {
+    switch (status) {
+      case 'Annulé':
+        return 'badge bg-danger';
+      case 'A organiser':
+        return 'badge bg-warning';
+      case 'Confirmé':
+        return 'badge bg-success';
+      default:
+        return 'badge bg-secondary';
+    }
+  }
+
   ngOnInit() {
     this.loadExams();
   }
