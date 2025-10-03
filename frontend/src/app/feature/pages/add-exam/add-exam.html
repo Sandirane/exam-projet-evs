@@ -1,31 +1,40 @@
-<form [formGroup]="examFormGroup" (ngSubmit)="addSubmit()">
-  <label>
-    Prénom:
-    <input type="text" formControlName="first_name" required /> </label
-  ><br />
+<div class="card">
+  <div class="container mt-3">
+    <h2>Add exam</h2>
+    <form [formGroup]="examFormGroup" (ngSubmit)="addSubmit()">
+      <div class="mb-3 mt-3">
+        <label for="first_name">Firstname*:</label>
+        <input type="text" class="form-control" id="first_name" formControlName="first_name" />
+      </div>
 
-  <label>
-    Nom:
-    <input type="text" formControlName="last_name" required /> </label
-  ><br />
+      <div class="mb-3 mt-3">
+        <label for="last_name">Lastname*:</label>
+        <input type="text" class="form-control" id="last_namee" formControlName="last_name" />
+      </div>
 
-  <label>
-    Lieu de rencontre:
-    <input type="text" formControlName="meeting_point" required /> </label
-  ><br />
+      <div class="mb-3 mt-3">
+        <label for="meeting_point">Meeting point*:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="meeting_point"
+          formControlName="meeting_point"
+        />
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="date" class="form-label">Date*:</label>
+        <input type="datetime-local" id="date" class="form-control" formControlName="date" />
+      </div>
 
-  <label>
-    Date:
-    <input type="datetime-local" formControlName="date" required /> </label
-  ><br />
+      <div class="mb-3 mt-3">
+        <label for="first_name">Status*:</label>
+        <select formControlName="status" class="form-select">
+          <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+        </select>
+      </div>
 
-  <label>
-    Status:
-    <select formControlName="status">
-      <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
-    </select> </label
-  ><br />
-
-  <button type="submit">Add</button>
-  <button type="button" [routerLink]="['/exams-list']">cancel</button>
-</form>
+      <button type="submit" class="btn btn-primary" [disabled]="examFormGroup.invalid">Add</button>
+      <button type="button" class="btn btn-success" [routerLink]="['/exams-list']">cancel</button>
+    </form>
+  </div>
+</div>
