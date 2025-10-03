@@ -1,0 +1,31 @@
+<form [formGroup]="examFormGroup" (ngSubmit)="addSubmit()">
+  <label>
+    Prénom:
+    <input type="text" formControlName="first_name" required /> </label
+  ><br />
+
+  <label>
+    Nom:
+    <input type="text" formControlName="last_name" required /> </label
+  ><br />
+
+  <label>
+    Lieu de rencontre:
+    <input type="text" formControlName="meeting_point" required /> </label
+  ><br />
+
+  <label>
+    Date:
+    <input type="datetime-local" formControlName="date" required /> </label
+  ><br />
+
+  <label>
+    Status:
+    <select formControlName="status">
+      <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+    </select> </label
+  ><br />
+
+  <button type="submit">Add</button>
+  <button type="button" [routerLink]="['/exams-list']">cancel</button>
+</form>

@@ -8,7 +8,6 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class ExamService {
-
   private http = inject(HttpClient);
 
   private apiUrl = environment.apiUrl;
@@ -17,5 +16,8 @@ export class ExamService {
     return this.http.get<Exam[]>(`${this.apiUrl}/exams`);
   }
 
-
+  addExam(exam: Exam): Observable<Exam> {
+    return this.http.post<Exam>(`${this.apiUrl}/exams`, exam);
+  }
+  
 }
