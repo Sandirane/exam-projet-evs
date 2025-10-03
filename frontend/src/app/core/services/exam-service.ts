@@ -7,11 +7,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ExamService {
+
   private http = inject(HttpClient);
 
-  private apiUrl = 'http://localhost:3000/api/';
+  private apiUrl = 'http://localhost:3000/api';
 
   getExams(): Observable<Exam[]> {
-    return this.http.get<Exam[]>(`${this.apiUrl}/exam`);
+    return this.http.get<Exam[]>(`${this.apiUrl}/exams`);
   }
+
+
 }
